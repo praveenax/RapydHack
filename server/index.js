@@ -12,7 +12,12 @@ app.get('/', (req, res) => {
 app.get('/video', function(req, res) {
     //from the videoId - path -> AWS S3
     //PROBLEM WITH REMOTE HOSTING
+
+    //for the videoId -> get the path from database
+    //path
+
     const path = './sample/sample.mp4'
+    // const path = "https://kotk-app.s3.ap-south-1.amazonaws.com/sample.mp4"
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
