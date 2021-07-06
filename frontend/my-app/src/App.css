@@ -1,3 +1,28 @@
 .main-section {
-    margin-left: 210px;
+    margin-left: 200px;
+    padding: 80px 0 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    height: 44px;
+    width: calc(100% - 200px);
+    border-bottom: 1px solid #eee;
+    justify-content: flex-end;
+    background-color: #fff;
+}
+
+.pl-20 {
+    padding-left: 40px;
+}
+
+.profile-section,
+.logout {
+    padding: 0 12px;
+}
+
+.profile-section img,
+.logout img {
+    margin-right: 6px;
 }
