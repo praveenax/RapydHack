@@ -1,0 +1,14 @@
+ - add money to user wallet
+- send money from user wallet to creator wallet(s)
+- get transactions in the wallet
+- get money from creator wallet
+
+
+
+DB structure:
+
+- users 
+    -> userid:{userdetails}
+
+- microwallet 
+    -> userid:[{topic:"java",value:12.32},{topic:"java",value:12.32},{topic:"java",value:12.32}]
