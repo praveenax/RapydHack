@@ -98,7 +98,7 @@ async function httpRequest(options, body) {
                 });
 
                 res.on('end', () => {
-
+                    
                     response.body = response.body ? JSON.parse(response.body) : {}
                     log && console.log(`httpRequest response: ${JSON.stringify(response)}`);
 
