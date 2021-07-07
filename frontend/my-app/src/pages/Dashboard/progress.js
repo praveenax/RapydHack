@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import './style.css';
 
-const ProgressBar = ({active,index,segmentOver}) => {
+const ProgressBar = ({active,index,segmentOver,playState}) => {
 
     console.log(active)
 
@@ -9,24 +9,29 @@ const ProgressBar = ({active,index,segmentOver}) => {
 
     useEffect(()=>{
         //timer => update the progressbar -> 1,2,3
-        if(active===index){
-            let sInt = setInterval(()=>{
+        let sInt
+        function clear(){
+            clearInterval(sInt);
+        }
+
+        function increment(Int){
+            setProgess(prev=>{
+                if(prev < 100 && playState !== 'pause'){
+                    return prev+10
+                }else if(prev === 100){
+                    segmentOver(index)
+                    clear()
+                }
             
-                setProgess(prev=>{
-                    if(prev < 100){
-                        return prev+10
-                    }else if(prev === 100){
-                        segmentOver(index)
-                        clearInterval(sInt)
-                    }
-                
-                })
-                
-            },1000)
+            })
+        }
+        if(active===index){
+            sInt = setInterval(increment(sInt),1000)
+            return () => clear()
         }
        
 
-    },[active,index,segmentOver])
+    },[active,index,segmentOver,playState])
 
 
     return(

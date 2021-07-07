@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [lastPlay, setLastPlay] = useState(0)
     const [activeSegment, setActiveSegment] = useState(-1)
     const [subDivs, setSubDivs] = useState([
-        1,2,3,4,5
+        1,2,3,4
     ])
 
 
@@ -61,20 +61,17 @@ const Dashboard = () => {
     }
 
     const segmentOver = (id) => {
-        switch (id) {
-            case 0:
-                jumpVideo(11, 1)
-                break;
-            case 1:
-                jumpVideo(21, 2)
-                break;
-            case 2:
-                pauseVideo()
-                break;
-            default:
-                pauseVideo()
-                break;
+
+        if(id === subDivs.length-1){
+            pauseVideo()
+        }else{
+            jumpVideo(10*(id+1)+1, id+1)
         }
+        
+                
+               
+               
+             
 
     }
 
@@ -107,7 +104,7 @@ const Dashboard = () => {
                     return(
                         <div onClick={() => jumpVideo(10*(index+1), index)} style={{ position: 'absolute', top: '15px', height: '5px', left: `${Math.round(100/subDivs.length) * index + 1}%`, width: `${Math.round(100/subDivs.length) - 1}%`, background: 'grey' }}>
                         
-                    <ProgressBar active={activeSegment} index={index} segmentOver={segmentOver} />
+                    <ProgressBar active={activeSegment} index={index} segmentOver={segmentOver} playState={playState} />
                   
                 </div>
                     )
