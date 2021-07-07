@@ -11,7 +11,7 @@ const Sidebar = () => {
         </div>
         <div className="flex flex-col">
           <NavLink
-            to="/"
+            to="/dashboard"
             exact
             activeClassName="active-link"
             className="nav-link"
@@ -41,6 +41,14 @@ const Sidebar = () => {
             className="nav-link"
           >
             <span>Wallet</span>
+          </NavLink>
+          <NavLink
+            to="/earning"
+            exact
+            activeClassName="active-link"
+            className="nav-link"
+          >
+            <span>Earning</span>
           </NavLink>
         </div>
       </div>

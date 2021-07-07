@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import './style.css';
 
-const ProgressBar = ({active,index}) => {
+const ProgressBar = ({active,index,segmentOver}) => {
 
     console.log(active)
 
@@ -10,11 +10,14 @@ const ProgressBar = ({active,index}) => {
     useEffect(()=>{
         //timer => update the progressbar -> 1,2,3
         if(active===index){
-            setInterval(()=>{
+            let sInt = setInterval(()=>{
             
                 setProgess(prev=>{
                     if(prev < 100){
                         return prev+10
+                    }else if(prev === 100){
+                        segmentOver(index)
+                        clearInterval(sInt)
                     }
                 
                 })
@@ -23,7 +26,7 @@ const ProgressBar = ({active,index}) => {
         }
        
 
-    },[active,index])
+    },[active,index,segmentOver])
 
 
     return(
