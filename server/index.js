@@ -78,26 +78,26 @@ getWalletDetails('ewallet_a0be39addcab6acc827fcbf6c3440b1b').then((data)=>{
  
 })
 
-app.get('/acceptMoney', (req, res) => {
-  function acceptPayment(transactionId){
-    return new Promise((resolve,reject)=>{
-    const body = {
-        id: transactionId,
-        status: 'accept'
-      };
-    core.makeRequest('POST','/v1/account/transfer/response', body).then((response)=>{
-        // console.log(response)
-        console.log(JSON.stringify(response.body.data))
-        // console.log(JSON.stringify(response.body.data.email))
-        resolve(response.body)
-    })
-  })
-}
-//ewallet_c7d65b0307b8c46192c9b769a94e3cc2
-acceptPayment('4dcdfb54-df1a-11eb-b38b-02240218ee6d').then((data)=>{
-  res.send(data)
-})
-});
+// app.get('/acceptMoney', (req, res) => {
+//   function acceptPayment(transactionId){
+//     return new Promise((resolve,reject)=>{
+//     const body = {
+//         id: transactionId,
+//         status: 'accept'
+//       };
+//     core.makeRequest('POST','/v1/account/transfer/response', body).then((response)=>{
+//         // console.log(response)
+//         console.log(JSON.stringify(response.body.data))
+//         // console.log(JSON.stringify(response.body.data.email))
+//         resolve(response.body)
+//     })
+//   })
+// }
+// //ewallet_c7d65b0307b8c46192c9b769a94e3cc2
+// acceptPayment('1ed284d3-df1d-11eb-b38b-02240218ee6d').then((data)=>{
+//   res.send(data)
+// })
+// });
 
 
 app.get('/transferMoney', (req, res) => {
@@ -106,6 +106,20 @@ app.get('/transferMoney', (req, res) => {
 
 // const customerList = sample.makeRequest('GET','/customers?limit=10&')
 // console.log(customerList)
+function acceptPayment(transactionId){
+  return new Promise((resolve,reject)=>{
+  const body = {
+      id: transactionId,
+      status: 'accept'
+    };
+  core.makeRequest('POST','/v1/account/transfer/response', body).then((response)=>{
+      // console.log(response)
+      console.log(JSON.stringify(response.body.data))
+      // console.log(JSON.stringify(response.body.data.email))
+      resolve(response.body)
+  })
+})
+}
 
 function transfer(fromWalletId,toWalletId,amount,currency){
   return new Promise((resolve,reject)=>{
@@ -131,7 +145,10 @@ function transfer(fromWalletId,toWalletId,amount,currency){
 //ewallet_c7d65b0307b8c46192c9b769a94e3cc2
 //ewallet_a0be39addcab6acc827fcbf6c3440b1b
 transfer('ewallet_a0be39addcab6acc827fcbf6c3440b1b','ewallet_c7d65b0307b8c46192c9b769a94e3cc2',1,"USD").then((data)=>{
-  res.send(data)
+  // res.send(data)
+  acceptPayment(data.data.id).then((data2)=>{
+    res.send(data2)
+  })
 })
 
  
