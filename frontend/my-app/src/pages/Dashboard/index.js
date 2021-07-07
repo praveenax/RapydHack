@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './style.css';
 import ProgressBar from './progress';
 import { BsPlay, BsPause } from 'react-icons/bs'
+import { useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -9,6 +10,7 @@ const Dashboard = () => {
     const [playState, setPlayState] = useState('pause')
     const [elapsedTime, setElapsedTime] = useState(0)
     const [lastPlay, setLastPlay] = useState(0)
+    const [activeSegment,setActiveSegment] = useState(-1)
 
     
 
@@ -17,9 +19,13 @@ const Dashboard = () => {
         setLastPlay(vidRef.current.currentTime)
         vidRef.current.play();
         setPlayState('playing')
+        if(activeSegment === -1){
+            setActiveSegment(0)
+        }
     }
     const pauseVideo = () => {
         console.log(vidRef.current.currentTime )
+        console.log(vidRef.current )
         vidRef.current.pause();
         setPlayState('pause')
         setElapsedTime(elapsedTime+ vidRef.current.currentTime - lastPlay)
@@ -29,7 +35,9 @@ const Dashboard = () => {
         return +(Math.round(num + "e+2")  + "e-2");
     }
 
-    const jumpVideo = (val) => {
+    const jumpVideo = (val,type) => {
+
+        console.log(type)
       
         if(vidRef.current){
        
@@ -42,6 +50,7 @@ const Dashboard = () => {
             vidRef.current.play();
             setPlayState('playing')
             console.log(vidRef.current.currentTime)
+            setActiveSegment(type)
 
         }
         
@@ -51,9 +60,9 @@ const Dashboard = () => {
 
     return <main className="dashboard-section">
 
-        <div style={{ width: '50%',display: 'block', position: 'relative' }}>
+        <div style={{ width: '80%',display: 'block', position: 'relative' }}>
             <video id="videoPlayer" ref={vidRef} 
-            style={{ width: '100%', top: '0px', bottom: "0px", left: "0px", right: "0px" }}  >
+            style={{ width: '100%', top: '0px', bottom: "0px", left: "0px", right: "0px" }} muted >
                 <source src="http://localhost:3000/video" type="video/mp4" />
             </video>
 
@@ -71,24 +80,24 @@ const Dashboard = () => {
                     )
                 }
 
-                <div onClick={()=>jumpVideo(0)} style={{ position: 'absolute', top: '15px', height: '5px', left: "2%", width: '30%', background: 'grey' }}>
+                <div onClick={()=>jumpVideo(0,0)} style={{ position: 'absolute', top: '15px', height: '5px', left: "2%", width: '30%', background: 'grey' }}>
 
-                    <ProgressBar />
+                    <ProgressBar active={activeSegment===0} />
                     {
                         (vidRef && vidRef.current && vidRef.current.currentTime) && (
                             <span style={{ color: '#fff' }}>{vidRef.current.currentTime}</span>
                         )
                     }
                 </div>
-                <div onClick={()=>jumpVideo(100)} style={{ position: 'absolute', top: '15px', height: '5px', left: "34%", width: '30%', background: 'grey' }}>
-                    <ProgressBar  />
+                <div onClick={()=>jumpVideo(100,1)} style={{ position: 'absolute', top: '15px', height: '5px', left: "34%", width: '30%', background: 'grey' }}>
+                    <ProgressBar active={activeSegment===1}   />
                     {
                           <span style={{ color: '#fff' }}>{elapsedTime}</span>
                         
                     }
                 </div>
-                <div onClick={()=>jumpVideo(200)} style={{ position: 'absolute', top: '15px', height: '5px', left: "66%", width: '30%', background: 'grey' }}>
-                    <ProgressBar />
+                <div onClick={()=>jumpVideo(200,2)} style={{ position: 'absolute', top: '15px', height: '5px', left: "66%", width: '30%', background: 'grey' }}>
+                    <ProgressBar active={activeSegment===2}  />
                 </div>
             </div>
         </div>
