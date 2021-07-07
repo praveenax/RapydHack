@@ -157,8 +157,12 @@ transfer('ewallet_a0be39addcab6acc827fcbf6c3440b1b','ewallet_c7d65b0307b8c46192c
 //getTranfer from one to another
 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('Server running on localhost:' + PORT));
+
 
 //4dcdfb54-df1a-11eb-b38b-02240218ee6d
