@@ -29,7 +29,9 @@ function App() {
             </div>
           </div>
         )}
-        <div className="px-40">
+        <div
+          className={location.pathname.includes("/login") ? "px-40 pt-40" : "body-section px-40"}
+        >
           <Route path="/" component={Dashboard} exact />
           <Route path="/login" component={Login} />
           <Route path="/library" component={Library} />

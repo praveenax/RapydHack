@@ -4,9 +4,9 @@
     left: 0;
     height: 100vh;
     width: 200px;
-    background: #fff;
+    background: #1F1D2B;
     padding: 0 0 20px 0;
-    border-right: 1px solid #eee;
+    border-right: 1px solid rgb(42 42 42);
 }
 
 .sidebar .logo {
@@ -16,4 +16,10 @@
 .sidebar a {
     margin-bottom: 40px;
     padding-left: 30px;
+    color: #aeaeae;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    font-weight: 600;
 }
