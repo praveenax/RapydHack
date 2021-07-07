@@ -8,6 +8,7 @@ import Explore from './pages/Explore';
 import Wallet from "./pages/Wallet";
 import profileIcon from "../src/assets/images/profile-icon.png";
 import logoutIcon from "../src/assets/images/logout-icon.png";
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
               <p>Logout</p>
             </div>
           </div>
-          <div className="pl-20">
+          <div className="px-40">
             <Route path="/" component={Dashboard} exact />
+            <Route path="/login" component={Login} />
             <Route path="/library" component={Library} />
             <Route path="/explore" component={Explore} />
             <Route path="/wallet" component={Wallet} />

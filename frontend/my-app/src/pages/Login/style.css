@@ -1,0 +1,40 @@
+.login-left-side {
+    width: 50%;
+}
+
+.login-form {
+    width: 50%;
+    padding-left: 40px;
+}
+
+.login-form h3 {
+    color: #707070;
+    margin-bottom: 10px;
+}
+
+.login-form h4 {
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.login-form input {
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    border: 0;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.signUp-link {
+    color: #0025EF;
+    margin-left: 4px;
+    font-weight: bold;
+}
