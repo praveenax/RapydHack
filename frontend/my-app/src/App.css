@@ -1,28 +1,74 @@
 .main-section {
-    margin-left: 200px;
-    padding: 80px 0 0;
+  /* margin-left: 200px; */
+  /* padding: 80px 0 0; */
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    height: 44px;
-    width: calc(100% - 200px);
-    border-bottom: 1px solid #eee;
-    justify-content: flex-end;
-    background-color: #fff;
+  position: fixed;
+  top: 0;
+  height: 44px;
+  width: calc(100% - 200px);
+  border-bottom: 1px solid rgb(42 42 42);
+  justify-content: flex-end;
+  background-color: #172224;
+  color: #fff;
+  right: 0;
 }
 
-.pl-20 {
-    padding-left: 40px;
+.body-section {
+    margin-left: 200px;
+    padding-top: 80px;
+    background: #1E1C2A;
+    color: #fff;
+}
+
+.px-40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.pt-40 {
+    padding-top: 40px;
+    background: #1E1C2A;
+    height: 100vh;
 }
 
 .profile-section,
 .logout {
-    padding: 0 12px;
+  padding: 0 12px;
 }
 
 .profile-section img,
 .logout img {
-    margin-right: 6px;
+  margin-right: 6px;
+}
+
+input {
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  border: 1px solid rgba(209, 213, 219, 1);
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    font-size: .875rem;
+    line-height: 1.25rem;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 80%;
+    appearance: none;
+}
+
+input:focus,
+input:focus-visible,
+input:focus-within {
+    border-color: rgba(99,102,241,1);
+    outline-color: rgba(99,102,241,1);
+    background-color: #fff;
+}
+
+
+input:internal-autofill-selected {
+    background-color: #fff !important;
 }
