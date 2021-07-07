@@ -155,6 +155,11 @@ transfer('ewallet_a0be39addcab6acc827fcbf6c3440b1b','ewallet_c7d65b0307b8c46192c
  
 })
 
+// app.get('*', function(req, res){
+//   // res.sendFile('./public/index.html')
+//   res.status(301).redirect('')
+// });
+
 //getTranfer from one to another
 
 

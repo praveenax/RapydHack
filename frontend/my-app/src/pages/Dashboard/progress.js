@@ -6,6 +6,7 @@ const ProgressBar = ({active,index,segmentOver,playState}) => {
     console.log(active)
 
     const [progress,setProgess] = useState(0)
+    // const [disabled,setDisabled] = useState(false)
 
     useEffect(()=>{
         //timer => update the progressbar -> 1,2,3
@@ -14,19 +15,29 @@ const ProgressBar = ({active,index,segmentOver,playState}) => {
             clearInterval(sInt);
         }
 
-        function increment(Int){
-            setProgess(prev=>{
-                if(prev < 100 && playState !== 'pause'){
-                    return prev+10
-                }else if(prev === 100){
-                    segmentOver(index)
-                    clear()
-                }
-            
-            })
-        }
+        
         if(active===index){
-            sInt = setInterval(increment(sInt),1000)
+            sInt = setInterval(()=>{
+
+                // if(!disabled){
+                    setProgess(prev=>{
+                        if(prev < 100 && playState !== 'pause'){
+                            return prev+0.1
+                        }else if(prev >= 100){
+                            segmentOver(index)
+                            clear()
+                            // setDisabled(false)
+                        }else{
+                            clear()
+                            return 100
+                            
+                        }
+                    
+                    })
+                // }
+               
+
+            },10)
             return () => clear()
         }
        

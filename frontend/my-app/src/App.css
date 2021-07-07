@@ -3,6 +3,10 @@
   /* padding: 80px 0 0; */
 }
 
+body{
+  background: #1F1D2B;
+}
+
 .header {
   position: fixed;
   top: 0;

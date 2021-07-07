@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [lastPlay, setLastPlay] = useState(0)
     const [activeSegment, setActiveSegment] = useState(-1)
     const [subDivs, setSubDivs] = useState([
-        1,2,3,4
+        1,2,3
     ])
 
 
@@ -65,7 +65,7 @@ const Dashboard = () => {
         if(id === subDivs.length-1){
             pauseVideo()
         }else{
-            jumpVideo(10*(id+1)+1, id+1)
+            jumpVideo(10*(id+1)+1, parseInt(id)+1)
         }
         
                 
@@ -80,7 +80,7 @@ const Dashboard = () => {
 
 
 
-        <div style={{ width: '80%', display: 'block', position: 'relative' }}>
+        <div style={{ width: '80%', display: 'inline-block', position: 'relative', float:'left' }}>
             <video id="videoPlayer" ref={vidRef}
                 style={{ width: '100%', top: '0px', bottom: "0px", left: "0px", right: "0px" }} muted >
                 <source src="http://localhost:3000/video" type="video/mp4" />
@@ -111,37 +111,21 @@ const Dashboard = () => {
                    
                 })}
 
-                {/* <div onClick={() => jumpVideo(0, 0)} style={{ position: 'absolute', top: '15px', height: '5px', left: "2%", width: '30%', background: 'grey' }}>
-
-                    <ProgressBar active={activeSegment} index={0} segmentOver={segmentOver} />
-                    {
-                        (vidRef && vidRef.current && vidRef.current.currentTime) && (
-                            <span style={{ color: '#fff' }}>{vidRef.current.currentTime}</span>
-                        )
-                    }
-                </div>
-                <div onClick={() => jumpVideo(10, 1)} style={{ position: 'absolute', top: '15px', height: '5px', left: "34%", width: '30%', background: 'grey' }}>
-                    <ProgressBar active={activeSegment} index={1}  segmentOver={segmentOver}/>
-                    {
-                        <span style={{ color: '#fff' }}>{elapsedTime}</span>
-
-                    }
-                </div>
-                <div onClick={() => jumpVideo(20, 2)} style={{ position: 'absolute', top: '15px', height: '5px', left: "66%", width: '30%', background: 'grey' }}>
-                    <ProgressBar active={activeSegment} index={2} segmentOver={segmentOver} />
-                </div>
-            */}
+              
             </div>
         </div>
 
+   
+                <div style={{display:'inline-block',float:'left',marginTop:'200px'}}>
+                Total Watch Time:
+        {roundToTwo(elapsedTime)} seconds
         <br />
 
         Total Cost:
-        {roundToTwo(elapsedTime * 0.003)} $
-        <br />
+        {roundToTwo(elapsedTime * 0.0015)} $
 
-        Total Cost:
-        {roundToTwo(elapsedTime * 0.003)} $
+                </div>
+     
 
 
     </main>;
