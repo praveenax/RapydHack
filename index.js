@@ -3,7 +3,7 @@ const fs = require('fs')
 var core = require('./Occupay/core')
 // var core = require("../core")
 const app = express()
-const port = 3000
+// const port = 3000
 
 app.use(express.static('public'))
 
@@ -20,7 +20,7 @@ app.get('/video', function(req, res) {
     //path
 
     // const path = './sample/sample.mp4'
-    const path = '../sample/steve.mp4'
+    const path = './sample/steve.mp4'
     // const path = "https://kotk-app.s3.ap-south-1.amazonaws.com/sample.mp4"
     const stat = fs.statSync(path)
     const fileSize = stat.size

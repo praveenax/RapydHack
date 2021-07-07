@@ -1,22 +1,14 @@
 {
-  "name": "rapydhack",
+  "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend files here",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/praveenax/RapydHack.git"
-  },
-  "author": "praveenax",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  },
-  "bugs": {
-    "url": "https://github.com/praveenax/RapydHack/issues"
-  },
-  "homepage": "https://github.com/praveenax/RapydHack#readme"
+  }
 }
