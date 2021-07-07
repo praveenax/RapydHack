@@ -9,7 +9,7 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   // res.send('Hello World!')
-  res.sendFile('./server/public/index.html')
+  res.sendFile('./public/index.html')
 })
 
 app.get('/video', function(req, res) {
