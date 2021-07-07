@@ -82,22 +82,22 @@ const Dashboard = () => {
 
                 <div onClick={()=>jumpVideo(0,0)} style={{ position: 'absolute', top: '15px', height: '5px', left: "2%", width: '30%', background: 'grey' }}>
 
-                    <ProgressBar active={activeSegment===0} />
+                    <ProgressBar active={activeSegment} index={0} />
                     {
                         (vidRef && vidRef.current && vidRef.current.currentTime) && (
                             <span style={{ color: '#fff' }}>{vidRef.current.currentTime}</span>
                         )
                     }
                 </div>
-                <div onClick={()=>jumpVideo(100,1)} style={{ position: 'absolute', top: '15px', height: '5px', left: "34%", width: '30%', background: 'grey' }}>
-                    <ProgressBar active={activeSegment===1}   />
+                <div onClick={()=>jumpVideo(10,1)} style={{ position: 'absolute', top: '15px', height: '5px', left: "34%", width: '30%', background: 'grey' }}>
+                    <ProgressBar active={activeSegment} index={1}    />
                     {
                           <span style={{ color: '#fff' }}>{elapsedTime}</span>
                         
                     }
                 </div>
-                <div onClick={()=>jumpVideo(200,2)} style={{ position: 'absolute', top: '15px', height: '5px', left: "66%", width: '30%', background: 'grey' }}>
-                    <ProgressBar active={activeSegment===2}  />
+                <div onClick={()=>jumpVideo(20,2)} style={{ position: 'absolute', top: '15px', height: '5px', left: "66%", width: '30%', background: 'grey' }}>
+                    <ProgressBar active={activeSegment} index={2}   />
                 </div>
             </div>
         </div>

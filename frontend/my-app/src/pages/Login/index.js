@@ -46,7 +46,16 @@ const Login = () => {
                 autoComplete={false}
               />
             </label>
-            <button className="login-btn" onClick={() => history.push("/")}>
+            <button className="login-btn" onClick={() => {
+              if(email === 'user' && password === 'user'){
+                localStorage.setItem('usertype','user')
+                history.push("/")
+              }else if(email === 'creator' && password === 'creator'){
+                localStorage.setItem('usertype','creator')
+                history.push("/")
+              }
+               
+            }}>
               Login
             </button>
           </form>
