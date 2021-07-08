@@ -57,6 +57,7 @@ app.get('/video', function(req, res) {
 app.get('/getWalletDetails', (req, res) => {
  
   //will get walletId
+  var wallet_id = req.query.u;
 
 // const customerList = sample.makeRequest('GET','/customers?limit=10&')
 // console.log(customerList)
@@ -72,7 +73,8 @@ function getWalletDetails(walletId){
    
 }
 //ewallet_c7d65b0307b8c46192c9b769a94e3cc2
-getWalletDetails('ewallet_a0be39addcab6acc827fcbf6c3440b1b').then((data)=>{
+// getWalletDetails('ewallet_a0be39addcab6acc827fcbf6c3440b1b').then((data)=>{
+  getWalletDetails(wallet_id).then((data)=>{
   console.log(data)
   res.send(data)
 })
@@ -103,7 +105,7 @@ getWalletDetails('ewallet_a0be39addcab6acc827fcbf6c3440b1b').then((data)=>{
 
 
 app.get('/transferMoney', (req, res) => {
- 
+  var amount = req.query.amount;
   //will get walletId
 
 // const customerList = sample.makeRequest('GET','/customers?limit=10&')
@@ -146,7 +148,7 @@ function transfer(fromWalletId,toWalletId,amount,currency){
 }
 //ewallet_c7d65b0307b8c46192c9b769a94e3cc2
 //ewallet_a0be39addcab6acc827fcbf6c3440b1b
-transfer('ewallet_a0be39addcab6acc827fcbf6c3440b1b','ewallet_c7d65b0307b8c46192c9b769a94e3cc2',1,"USD").then((data)=>{
+transfer('ewallet_c7d65b0307b8c46192c9b769a94e3cc2','ewallet_a0be39addcab6acc827fcbf6c3440b1b',amount,"USD").then((data)=>{
   // res.send(data)
   acceptPayment(data.data.id).then((data2)=>{
     res.send(data2)
