@@ -20,7 +20,8 @@ app.get('/video', function(req, res) {
     //path
 
     // const path = './sample/sample.mp4'
-    const path = './sample/steve.mp4'
+    // const path = './sample/react.mp4'
+    const path = './sample/plating.mp4'
     // const path = "https://kotk-app.s3.ap-south-1.amazonaws.com/sample.mp4"
     const stat = fs.statSync(path)
     const fileSize = stat.size
