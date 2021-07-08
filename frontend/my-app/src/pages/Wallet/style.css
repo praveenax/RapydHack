@@ -1,12 +1,25 @@
 .wallet-section {
-    min-height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 30px;
 }
 
 .wallet-section h1 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .wallet-section h4 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.neumorphism {
+  /* background: linear-gradient(145deg, #1b1926, #201e2d); */
+  background: linear-gradient(145deg, #201e2d, #1b1926);
+  /* box-shadow: 6px 4px 49px #14131d, -25px -25px 49px #282537; */
+  box-shadow: 19px 19px 38px #14131d, -15px -15px 38px #282537;
+  padding: 20px;
 }
 
 /* .recharts-wrapper,
@@ -15,6 +28,53 @@
     width: 100% !important;
 } */
 
+.time-spent-section {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 6px;
+}
+
+.watched-topics-section {
+  width: 42%;
+  /* border: 1px solid #eee; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40px;
+  padding: 20px 6px;
+}
+
+/* Custom Charts CSS */
 .recharts-tooltip-label {
-    display: none;
+  display: none;
+}
+
+.recharts-curve.recharts-tooltip-cursor {
+  stroke: transparent !important;
+}
+
+.recharts-default-tooltip {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.recharts-tooltip-item {
+  color: rgb(0 196 159);
+  font-weight: bold;
+}
+
+.watched-topics-section .custom-tooltip {
+  background-color: transparent;
+}
+
+.recharts-rectangle.recharts-tooltip-cursor {
+  fill: #393939 !important;
+}
+
+.watched-topics-section .recharts-tooltip-item {
+  color: #fff !important;
 }
